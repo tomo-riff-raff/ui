@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- node
+script:
+- yarn run build
+- yarn test
+deploy:
+  provider: heroku
+  api_key:
+    secure: CMCC6dRNMIFvaasmZMBEnNtx6MkUEOZLHixyQRbYz0JgeVgi3Lc2iME4VeiDWbcCj5+iDsvdfxFC/rjsf2DYmW2BdlZ4vDkvqkznutUWHp2BRLVyHHd511xl1Hjgbq9pRTLL85R4/JMPURbAV7RB8MRqBeyrB09lIB8FORtnb2YtvKNTSFAqkOeybHkj3YnRkM07v/lpqlWBNaz/3SwJO7mQ6vyXUxKGQ7L6Nc9YWGr36g2uUyAtv6wT58GOC49NCpfSb9GBAsy1s3PKJEAxm6R4P7jgHYMjw0zAeFdGxR2aNlD5RmRvHx//ItYaQ1puloJYf6W3hKvlVDkCUY7VWfUYudZ9ilhI3k8Bnrk6kZYC9WYRNO03j3aTHdWEPi71/vE2mv1uR0Ng/7NpbKiC6vp8N5FxlQODA7VuL1ng9btBsshDgQgqtVUikCla+yLStaMiocFuxiBrxAG/o+3V7ToZZADxlwnuVe9FeWaVJTwYF6Ran1Calx89uOJoh7OR2YcHdHfDAPyO10AIJGJ1WdaPZWuU61fHunf9ZPQYumXiN0C9GDJCRsCeEQ+r02Dnl8M3crrsWMh8W/QirIzXWmG/Ez5kcZv6hCg+cNvw6sinhBxcU5t3PmflE6FncrkZoJzEZqmynldIWrOWufiPNKuc4osxFuDZoDRwMXX18oE=
+  app: tomo-app
+  on:
+    repo: tomo-riff-raff/tomo-ui
+    branch: main
+  skip_cleanup: true
+cache: 
+  directories: 
+    - node_modules
+notifications:
+  email:
+    on_success: never
+    on_failure: never
