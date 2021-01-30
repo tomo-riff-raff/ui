@@ -2,8 +2,8 @@ language: node_js
 node_js:
 - node
 script:
-- npm test
-- npm run build
+- yarn run build
+- yarn test
 deploy:
   provider: heroku
   api_key:
