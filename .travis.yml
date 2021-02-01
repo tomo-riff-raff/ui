@@ -3,7 +3,7 @@ node_js:
 - node
 script:
 - yarn run build
-- yarn test
+- yarn cypress run
 deploy:
   provider: heroku
   api_key:
