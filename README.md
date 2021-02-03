@@ -2,6 +2,8 @@
 
 [Deployed app](https://tomo-app.herokuapp.com/)
 
+Stack: React, Cypress, Heroku, Travis CI
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
