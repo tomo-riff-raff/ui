@@ -1,4 +1,3 @@
-import LanguagesSupported from '../LanguagesSupported/LanguagesSupported';
 import { Link } from "react-router-dom";
 
 const Footer = () => {
