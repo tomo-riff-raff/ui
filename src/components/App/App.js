@@ -1,12 +1,14 @@
+import React, { } from 'react';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import './App.css';
-
-function App() {
+import { gql, useQuery } from '@apollo/client';
+  
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <Header />
-      </header>
+      <Header />
+      <Footer />
     </div>
   );
 }
