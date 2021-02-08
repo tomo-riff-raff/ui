@@ -1,12 +1,22 @@
+import React, { } from 'react';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import LanguagesSupported from '../LanguagesSupported/LanguagesSupported';
 import './App.css';
+import { Route } from "react-router-dom";
 
-function App() {
+  
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <Header />
-      </header>
+      <Header />
+      <Route
+        path="/languages"
+        render={() => {
+          return <LanguagesSupported />;
+        }}
+      />
+      <Footer />
     </div>
   );
 }
