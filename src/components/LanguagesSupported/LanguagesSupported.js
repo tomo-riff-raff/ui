@@ -1,12 +1,12 @@
 import { gql, useQuery } from '@apollo/client';
 
 export const GET_LANGUAGES = gql`
-{
-  getLanguages {
-    id
-    name
+  {
+    getLanguages {
+      id
+      name
+    }
   }
-}
 `;
 
 const renderLanguageNames = (data) => (
