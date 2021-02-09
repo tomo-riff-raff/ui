@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer>
-      <Link to="/languages">Languages supported</Link>
+      <ul>  
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/languages">Languages supported</Link>
+        </li>
+      </ul>
     </footer>
   )
 }
