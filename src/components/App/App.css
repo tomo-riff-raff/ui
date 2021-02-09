@@ -1,5 +1,8 @@
 body {
   background-color: #282c34;
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
 }
 
 .App {
@@ -11,26 +14,35 @@ body {
   justify-content: center;
 }
 
-header {
-  font-size: calc(10px + 2vmin);
-}
-
 footer {
+  align-items: center;
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-  text-align: center;
+}
+
+footer li {
+   display:inline; 
+   padding: 0 10px;
+}
+
+footer a {
+  color: white;
 }
 
 li {
   list-style-type: none;
 }
 
-a {
-  color: white;
-}
-
 .explanatory-text {
   font-style: italic;
+}
+
+.temporary-header {
+  font-size: 10em;
+}
+
+.temporary-subhead {
+  font-size: 5em;
 }
