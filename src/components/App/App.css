@@ -15,12 +15,12 @@ body {
 }
 
 button {
-  margin-bottom: 10px;
+  margin-bottom: 80px;
 }
 
 footer {
   align-items: center;
-  position: absolute;
+  margin-top: 30px;
   right: 0;
   bottom: 0;
   left: 0;
