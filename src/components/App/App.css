@@ -14,6 +14,10 @@ body {
   justify-content: center;
 }
 
+button {
+  margin-bottom: 10px;
+}
+
 footer {
   align-items: center;
   position: absolute;
@@ -44,5 +48,5 @@ li {
 }
 
 .temporary-subhead {
-  font-size: 5em;
+  font-size: 3em;
 }
