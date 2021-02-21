@@ -8,14 +8,6 @@ body {
 .App {
   color: white;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-button {
-  margin-bottom: 80px;
 }
 
 footer {
@@ -26,17 +18,22 @@ footer {
   left: 0;
 }
 
-footer li {
-   display:inline; 
-   padding: 0 10px;
+button {
+  background: transparent;
+  color: white;
 }
 
-footer a {
+a {
   color: white;
 }
 
 li {
   list-style-type: none;
+}
+
+.navbar{
+  display: flex;
+  align-content: center ;
 }
 
 .explanatory-text {
