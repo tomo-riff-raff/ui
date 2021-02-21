@@ -4,23 +4,18 @@ import { Link } from "react-router-dom";
 import { UserContext } from '../../UserContext';
 import { login } from "../Login/Login";
 
-const GET_USER = gql`
-  {
-    getUser(id: "1") {
-      username
-    }
-  }
-`;
-
 const Nav = () => {
   const { user, setUser } = useContext(UserContext);
-  const { loading, error, data } = useQuery(GET_USER);
 
   return (
     <nav>
       {user ? (
-         <div>
-          <p class="explanatory-text">Logged in as: {data && data.getUser.username}</p>
+         <div class="navbar">
+            <ul>  
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+            </ul>
           <button 
             onClick={() => {
               setUser(null);
@@ -28,21 +23,18 @@ const Nav = () => {
           >
             logout
           </button>
-          <ul>  
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-          </ul>
         </div>
       ) : (
-        <button
-          onClick={async () => {
-            const user = await login();
-            setUser(user);
-          }}
-        >
-          login
-        </button>
+        <div class="navbar">
+          <button
+            onClick={async () => {
+              const user = await login();
+              setUser(user);
+            }}
+          >
+            login
+          </button>
+        </div>
       )}
     </nav>
   )
