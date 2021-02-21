@@ -1,10 +1,9 @@
-describe('Languages Supported Page', () => {
+describe('Login / logout functionality', () => {
   it('can login user', () => {
     cy.visit('/')
 
     cy.contains('login').click()
 
-    cy.contains('Logged in as: LoganRools')
     cy.contains('logout')
   })
 
@@ -14,7 +13,6 @@ describe('Languages Supported Page', () => {
     cy.contains('login').click()
     cy.contains('logout').click()
 
-    cy.contains('Logged in as: LoganRools').should('not.exist')
     cy.contains('login')
   })
 })
