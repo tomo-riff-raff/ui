@@ -1,12 +1,10 @@
 body {
-  background-color: #282c34;
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
 }
 
 .App {
-  color: white;
   text-align: center;
 }
 
@@ -15,14 +13,14 @@ li {
 }
 
 a {
-  color: white;
-  text-decoration: none; 
+  text-decoration: none;
+  color: blue;
 }
 
 button {
   background: transparent;
-  color: white;
-  border-color: white;
+  color: blue;
+  border-color: blue;
   padding: 5px;
   border-radius: 10px;
   border-style: solid;
