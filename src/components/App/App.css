@@ -21,19 +21,34 @@ footer {
 button {
   background: transparent;
   color: white;
+  border-color: white;
+  padding: 5px;
+  border-radius: 10px;
+  border-style: solid;
+  font-family: inherit;
+  font-size: inherit;
 }
 
 a {
   color: white;
+  text-decoration: none; 
 }
 
 li {
   list-style-type: none;
 }
 
-.navbar{
+.navbar {
   display: flex;
-  align-content: center ;
+  justify-content: flex-end;
+  width: 95%;
+  padding: 10px;
+}
+
+.navbar a {
+  padding-right: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .explanatory-text {
