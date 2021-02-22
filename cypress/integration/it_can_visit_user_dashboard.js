@@ -8,7 +8,8 @@ describe('User dashboard', () => {
   it('can visit from navbar when user is logged in', () => {
     cy.visit('/')
 
-    cy.contains('login').click()
+    cy.contains('Login').click()
+    cy.contains('Dashboard').click()
 
     cy.url().should('include', '/dashboard')
     cy.contains('Dashboard')
@@ -17,7 +18,7 @@ describe('User dashboard', () => {
   it('can see specific info on dashboard when logged in', () => {
     cy.visit('/')
 
-    cy.contains('login').click()
+    cy.contains('Login').click()
     cy.contains('Dashboard').click()
 
     cy.contains('Logged in as: LoganRools')
