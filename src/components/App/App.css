@@ -10,12 +10,13 @@ body {
   text-align: center;
 }
 
-footer {
-  align-items: center;
-  margin-top: 30px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+li {
+  list-style-type: none;
+}
+
+a {
+  color: white;
+  text-decoration: none; 
 }
 
 button {
@@ -29,13 +30,13 @@ button {
   font-size: inherit;
 }
 
-a {
-  color: white;
-  text-decoration: none; 
-}
-
-li {
-  list-style-type: none;
+footer {
+  margin-top: 30px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar {
@@ -49,6 +50,10 @@ li {
   padding-right: 50px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+footer a {
+  padding-right: 20px;
 }
 
 .explanatory-text {
