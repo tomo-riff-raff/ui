@@ -11,17 +11,13 @@ const Nav = () => {
     <nav>
       {user ? (
          <div class="navbar">
-            <ul>  
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-            </ul>
+          <Link to="/dashboard">Dashboard</Link>
           <button 
             onClick={() => {
               setUser(null);
             }}
           >
-            logout
+            Logout
           </button>
         </div>
       ) : (
@@ -32,7 +28,7 @@ const Nav = () => {
               setUser(user);
             }}
           >
-            login
+            Login
           </button>
         </div>
       )}
