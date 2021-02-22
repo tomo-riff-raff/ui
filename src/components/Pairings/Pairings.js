@@ -1,11 +1,8 @@
-import React, { useContext } from "react";
-import { UserContext } from '../../UserContext';
+import React from "react";
 
 const Pairings = () => {
-  const { user, setUser } = useContext(UserContext);
-
   return (
-      <h2>Availabilities</h2>
+      <h2>Pairings</h2>
   )
 }
 
