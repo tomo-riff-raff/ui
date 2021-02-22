@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import Home from '../Home/Home';
 import Footer from '../Footer/Footer';
+import Nav from '../Nav/Nav';
 import LanguagesSupported from '../LanguagesSupported/LanguagesSupported';
+import Dashboard from '../Dashboard/Dashboard';
 import './App.css';
 import { Route } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
@@ -14,7 +16,9 @@ const App = () => {
   return (
     <div className="App">
       <UserContext.Provider value={value}>
+        <Nav />
         <Route path="/" exact component={Home}></Route>
+        <Route path="/dashboard" component={Dashboard}></Route>
         <Route path="/languages" component={LanguagesSupported}></Route>
         <Footer />
       </UserContext.Provider>
