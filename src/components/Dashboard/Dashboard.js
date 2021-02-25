@@ -12,15 +12,21 @@ const GET_USER = gql`
 `;
 
 const Dashboard = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const { loading, error, data } = useQuery(GET_USER);
   
   return (
-    <header>
+    <div>
       <h1>Dashboard</h1>
-      <p class="explanatory-text">Logged in as: {data && data.getUser.username}</p>
-      <Pairings />
-    </header>
+      {user ? (
+        <div>
+          <p class="explanatory-text">Logged in as: {data && data.getUser.username}</p>
+          <Pairings />
+        </div>
+      ) : (
+        <p class="explanatory-text">Not logged in</p>
+      )}
+    </div>
   )
 }
 
