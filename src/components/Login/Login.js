@@ -41,6 +41,7 @@ const LoginForm = () => {
   const onSubmit = (event) => {
     event.preventDefault()
     setUser(values)
+    authenticate
   }
 
   return (
