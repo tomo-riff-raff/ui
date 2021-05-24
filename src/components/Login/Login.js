@@ -1,47 +1,78 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { gql, useQuery } from '@apollo/client';
-import { UserContext } from '../../UserContext';
+import React, { useContext, useState } from "react"
+import { Link } from "react-router-dom"
+import { gql, useQuery } from '@apollo/client'
+import { UserContext } from '../../UserContext'
+import { Button, Form } from 'semantic-ui-react'
 
-export const LOGIN = gql`
-query ($email: String!, $password: String!){
-    login(email: $email password: $password) {
-      id
-    }
+export const AUTHENTICATE = gql`
+  query authenticate(
+    $email: String! 
+    $password: String!
+  ) {
+    authenticate(
+      authenticateInput: {
+        email: $email
+        password: $password
+      }
+      ){
+        id email username
+      }
   }
-`;
-
-
+`
 
 const LoginForm = () => {
-  const { user, setUser } = useContext(UserContext);
-  const { loading, error, data } = useQuery(LOGIN);
+  const {user, setUser } = useContext(UserContext);
+  const [values, setValues] = useState({
+    email: '',
+    password: ''
+  })
+  
+  const onChange = (event) => {
+    setValues({ ...values, [event.target.name]: event.target.value})
+  }
+
+  const [authenticate, {loading, error, data }] = useQuery(AUTHENTICATE, {
+    update(proxy, result) {
+      console.log(result)
+    },
+    variables: values
+  })
+
+  const onSubmit = (event) => {
+    event.preventDefault()
+    setUser(values)
+  }
 
   return (
-    <form>
-      <input
-        className="email"
+    <form onSubmit={onSubmit}>
+      <Form.Input
+        label="email"
         placeholder="email"
+        name="email"
+        type="email"
+        value={values.email}
+        onChange={onChange}
       />
-      <input
-        className="password"
+      <Form.Input
+        label="password"
         placeholder="password"
+        name="password"
+        type="password"
+        value={values.password}
+        onChange={onChange}
       />
-      <button 
-        onClick={() => {
+      <Button type="submit" primary>
+        {/* onClick={() => {
           setUser(data)
-          {user.id ? (
-            <div>
-              <p>Your email/password combination was incorrect</p>
-              <Link to="/login">Try Again</Link>
-            </div>
+
+          {user ? (
+            <p>Your email/password combination was incorrect</p>
           ) : (
             <p>Welcome, {user.username}</p>
           )}
-        }}
-      >
-        Login
-      </button>
+        }} */}
+        Log In
+      </Button>
     </form>
   );
 }
