@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { gql, useQuery } from '@apollo/client';
 import { Link } from "react-router-dom";
 import { UserContext } from '../../UserContext';
-import { login } from "../Login/Login";
 
 const Nav = () => {
   const { user, setUser } = useContext(UserContext);
@@ -22,14 +21,7 @@ const Nav = () => {
         </div>
       ) : (
         <div class="navbar">
-          <button
-            onClick={async () => {
-              const user = await login();
-              setUser(user);
-            }}
-          >
-            Login
-          </button>
+          <Link to="/login">Login</Link>
         </div>
       )}
     </nav>

@@ -65,3 +65,11 @@ footer a {
 .temporary-subhead {
   font-size: 3em;
 }
+
+ form {
+  width: 50%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  display: inline-block;
+ }

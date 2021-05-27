@@ -4,21 +4,34 @@ import { UserContext } from '../../UserContext';
 import Pairings from '../Pairings/Pairings';
 
 const GET_USER = gql`
-  {
-    getUser(id: "1") {
-      username
-    }
+  query getUser(
+    $id: ID! 
+  ) {
+    getUser(
+        id: $id
+      ){
+        id email username
+      }
   }
-`;
+`
 
 const Dashboard = () => {
   const { user, setUser } = useContext(UserContext);
-  const { loading, error, data } = useQuery(GET_USER);
+  const { loading, error, data } = useQuery(GET_USER, {
+      variables: { id: user && user.id }
+    }
+  );
   
   return (
     <header>
       <h1>Dashboard</h1>
-      <p class="explanatory-text">Logged in as: {data && data.getUser.username}</p>
+      {user ? (
+          <p class="explanatory-text">Logged in as: {data && data.getUser.username}</p>
+        ) : (
+          <p>It appears you're not logged in!</p>
+        )
+      }
+      
       <Pairings />
     </header>
   )
