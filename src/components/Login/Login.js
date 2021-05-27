@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
 import { gql, useQuery } from '@apollo/client'
 import { UserContext } from '../../UserContext'
 import { Button, Form } from 'semantic-ui-react'
@@ -10,10 +10,8 @@ export const AUTHENTICATE = gql`
     $password: String!
   ) {
     authenticate(
-      authenticateInput: {
         email: $email
         password: $password
-      }
       ){
         id email username
       }
@@ -21,6 +19,7 @@ export const AUTHENTICATE = gql`
 `
 
 const LoginForm = () => {
+  const [errors, setErrors] = useState({})
   const {user, setUser } = useContext(UserContext);
   const [values, setValues] = useState({
     email: '',
@@ -31,23 +30,19 @@ const LoginForm = () => {
     setValues({ ...values, [event.target.name]: event.target.value})
   }
 
-  const [authenticate, {loading, error, data }] = useQuery(AUTHENTICATE, {
-    update(proxy, result) {
-      console.log(result)
-    },
+  const {loading, error, data } = useQuery(AUTHENTICATE, {
     variables: values
   })
 
   const onSubmit = (event) => {
-    event.preventDefault()
-    setUser(values)
-    authenticate
+    // event.preventDefault()
+    setUser(data && data.authenticate)
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form>
       <Form.Input
-        label="email"
+        label="email:"
         placeholder="email"
         name="email"
         type="email"
@@ -55,25 +50,28 @@ const LoginForm = () => {
         onChange={onChange}
       />
       <Form.Input
-        label="password"
+        label="password:"
         placeholder="password"
         name="password"
         type="password"
         value={values.password}
         onChange={onChange}
       />
-      <Button type="submit" primary>
-        {/* onClick={() => {
-          setUser(data)
+      <br></br>
+      <Form.Button type="submit" primary onClick={onSubmit}>Log In</Form.Button>
 
-          {user ? (
-            <p>Your email/password combination was incorrect</p>
-          ) : (
-            <p>Welcome, {user.username}</p>
-          )}
-        }} */}
-        Log In
-      </Button>
+      { user ? (
+          <Redirect to="/dashboard" />
+       ) : (
+        error ? (
+          <p>Your email/password combination was incorrect</p>
+        ) : (<p></p>)
+       )
+      }
+
+      <div class="register-link">
+        <Link to="/register">New to Tomo? Register Here</Link>
+      </div>
     </form>
   );
 }
